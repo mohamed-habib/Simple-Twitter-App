@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Simple Twitter App</string>
+    <string name="follower_profile_img_str">Follower Profile Image</string>
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/follower_profile_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/follower_profile_img_str"
+            android:src="@drawable/twitter" />
+
+        <TextView
+            android:id="@+id/follower_full_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:text="Mohamed Habib" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/follower_handle_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="mohamedhabib12"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <TextView
+        android:id="@+id/follower_bio_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed mohamed " />
+
+
+</LinearLayout>
