@@ -1,0 +1,108 @@
+    private void callGetFollowersAPI(String userScreenName) {
+
+        JSONObject jsonRequest = new JSONObject();
+        //        cursor=-1&screen_name=andypiper&count=5000
+        try {
+            jsonRequest.put("cursor", "-1");
+            jsonRequest.put("screen_name", userScreenName);
+            jsonRequest.put("count", "5000");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, AppConstClass.URL_GET_FOLLOWERS_IDS, jsonRequest, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                Log.d("UserData", response.toString());
+//            }
+//        },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        Log.d("UserData", error.getMessage()
+//
+//                        );
+//                    }
+//                });
+
+        CustomJsonObjectRequest customJsonObjectRequest = new CustomJsonObjectRequest(Request.Method.GET, AppConstClass.URL_GET_FOLLOWERS_IDS, jsonRequest, new Response.Listener() {
+            @Override
+            public void onResponse(Object response) {
+                Log.d("UserData", response.toString());
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("UserData", error.getMessage()
+
+                        );
+                    }
+                });
+
+        Volley.newRequestQueue(this).add(customJsonObjectRequest);
+        //        HttpURLConnection httpConnection = null;
+//        OutputStream outputStream = null;
+//        BufferedReader bufferedReader = null;
+//        StringBuilder response = null;
+//
+//        try {
+//            URL url = new URL(AppConstClass.URL_AUTHENTICATION);
+//            httpConnection = (HttpURLConnection) url.openConnection();
+//            httpConnection.setRequestMethod("GET");
+//            httpConnection.setDoOutput(true);
+//            httpConnection.setDoInput(true);
+//
+//            String accessCredential = AppConstClass.TWITTER_KEY + ":" + AppConstClass.TWITTER_SECRET;
+//            String authorization = "Basic " + Base64.encodeToString(accessCredential.getBytes(), Base64.NO_WRAP);
+//            String param = "grant_type=client_credentials";
+//            httpConnection.addRequestProperty("Authorization", authorization);
+//            httpConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+//            httpConnection.connect();
+//
+//            outputStream = httpConnection.getOutputStream();
+//            outputStream.write(param.getBytes());
+//            outputStream.flush();
+//            outputStream.close();
+////        int statusCode = httpConnection.getResponseCode();
+////        String reason = httpConnection.getResponseMessage();
+//
+//            bufferedReader = new BufferedReader(new InputStreamReader(httpConnection.getInputStream()));
+//            String line;
+//            response = new StringBuilder();
+//
+//            while ((line = bufferedReader.readLine()) != null) {
+//                response.append(line);
+//            }
+//
+//            Log.d(TAG, "POST response code: " + String.valueOf(httpConnection.getResponseCode()));
+//            Log.d(TAG, "JSON response: " + response.toString());
+//
+//        } catch (Exception e) {
+//            Log.e(TAG, "POST error: " + Log.getStackTraceString(e));
+//
+//        } finally {
+//            if (httpConnection != null) {
+//                httpConnection.disconnect();
+//            }
+//        }
+
+    }
+
+---------------------------------------------
+    public static final String TWITTER_SECRET = "jZAzKmM3phvYuGZFzWfq68DGOSKfYfg8zsLwiR6b8UtRk1TcI4";
+    public static final String OAUTH_NONCE = "9f82b8e4b99125fc84cab38b75a54695";
+    public static final String OAUTH_SIGNATURE = "Iyj59zueWsKoRShghwuzz8EuX1k%3D";
+    public static final String OAUTH_SIGNATURE_METHOD = "HMAC-SHA1%3D";
+    public static final String OAUTH_TOKEN = "463802417-g0bBLATf3IKNtMLpq81LMh3refSf4E7qAScWxsH1";
+    public static final String OAUTH_VERSION = "1.0";
+    public static final String TWITTER_KEY = "rfyL46H2cWTdYrk6JjdeeXISz";
+
+
+
+
+
+
+
+

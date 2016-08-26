@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.simpletwitterapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,7 +17,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FollowersListActivity"></activity>
+        <activity android:name=".FollowersListActivity" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="ab6cf310171a23d08a3de5993227ee3e68d7899e" />
+
+        <activity
+            android:name=".followerInformation"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="andriod.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>
