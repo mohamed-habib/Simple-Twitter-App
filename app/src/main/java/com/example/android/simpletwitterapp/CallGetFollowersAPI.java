@@ -31,7 +31,7 @@ class CallGetFollowersAPI extends AsyncTask<String, Void, Users> {
 
     @Override
     protected Users doInBackground(String... params) {
-        OAuthConsumer consumer = new DefaultOAuthConsumer(AppConstClass.TWITTER_KEY, AppConstClass.TWITTER_SECRET);
+        OAuthConsumer consumer = new DefaultOAuthConsumer(AppConstClass.CONSUMER_KEY, AppConstClass.CONSUMER_SECRET);
         consumer.setTokenWithSecret(params[0], params[1]);
         Users users = new Users();
         String cursor = params[2];

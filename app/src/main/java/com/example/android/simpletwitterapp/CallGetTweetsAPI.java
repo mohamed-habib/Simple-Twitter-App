@@ -31,7 +31,7 @@ class CallGetTweetsAPI extends AsyncTask<String, Void, List<String>> {
     @Override
     protected List<String> doInBackground(String... params) {
 
-        OAuthConsumer consumer = new DefaultOAuthConsumer(AppConstClass.TWITTER_KEY, AppConstClass.TWITTER_SECRET);
+        OAuthConsumer consumer = new DefaultOAuthConsumer(AppConstClass.CONSUMER_KEY, AppConstClass.CONSUMER_SECRET);
         consumer.setTokenWithSecret(params[0], params[1]);
         List<String> tweets = new ArrayList<>();
         String userId = params[2];

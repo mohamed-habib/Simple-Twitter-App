@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(AppConstClass.TWITTER_KEY, AppConstClass.TWITTER_SECRET);
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(AppConstClass.CONSUMER_KEY, AppConstClass.CONSUMER_SECRET);
         Fabric.with(this, new Twitter(authConfig));
         sharedPreferences = getSharedPreferences(AppConstClass.SHARED_PREFERENCES_FILE_NAME, MODE_PRIVATE);
         if (sharedPreferences.getBoolean(AppConstClass.LOGGED_IN, false)) {
