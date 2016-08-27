@@ -1,6 +1,7 @@
 package com.example.android.simpletwitterapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -11,13 +12,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.squareup.picasso.Picasso;
 
-public class followerInformation extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener {
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class FollowerInformation extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener {
 
     RecyclerView recyclerView;
 
@@ -30,22 +36,43 @@ public class followerInformation extends AppCompatActivity implements AppBarLayo
 
     private LinearLayout mTitleContainer;
     private TextView mTitle;
+    CircleImageView profileImgCircleImageView;
+    TextView userNameTV;
+    TextView screenNameTV;
+    ImageView backgroundIV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_follower_infromation);
 
-        mTitle = (TextView) findViewById(R.id.activity_follower_information_toolbar_title);
         mTitleContainer = (LinearLayout) findViewById(R.id.main_linearlayout_title);
         AppBarLayout mAppBarLayout = (AppBarLayout) findViewById(R.id.main_appbar);
+        profileImgCircleImageView = (CircleImageView) findViewById(R.id.activity_follower_information_user_profile_circle_img_view);
+        mTitle = (TextView) findViewById(R.id.activity_follower_information_toolbar_title);
+        screenNameTV = (TextView) findViewById(R.id.activity_follower_information_handle_tv);
+        userNameTV = (TextView) findViewById(R.id.activity_follower_information_user_name_tv);
+        backgroundIV = (ImageView) findViewById(R.id.main_imageview_follower_background);
+
         recyclerView = (RecyclerView) findViewById(R.id.tweets_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mAppBarLayout.addOnOffsetChangedListener(this);
         startAlphaAnimation(mTitle, 0, View.INVISIBLE);
 
-        List<String> tweets = getTweets();
+        User user = (User) getIntent().getSerializableExtra(AppConstClass.SELECTED_USER);
+
+        screenNameTV.setText(user.screen_name);
+        userNameTV.setText(user.fullName);
+        mTitle.setText(user.fullName + "'s Tweets");
+        Picasso.with(this).load(user.profile_img).into(profileImgCircleImageView);
+        if (!user.profile_background.equals("null")) {
+            Picasso.with(this).load(user.profile_background).into(profileImgCircleImageView);
+        } else {
+            //todo: set the color
+        }
+
+        List<String> tweets = getTweets(user.user_id);
         recyclerView.setAdapter(new TweetsRVAdapter(tweets, this));
 
 
@@ -62,67 +89,19 @@ public class followerInformation extends AppCompatActivity implements AppBarLayo
     }
 
     @NonNull
-    private List<String> getTweets() {
-        List<String> tweets = new ArrayList<>();
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
-        tweets.add("Hi There, this is a tweet");
+    private List<String> getTweets(String userId) {
+        SharedPreferences sharedPreferences = getSharedPreferences(AppConstClass.SHARED_PREFERENCES_FILE_NAME, MODE_PRIVATE);
+        String token = sharedPreferences.getString(AppConstClass.USER_TOKEN, "");
+        String tokenSecret = sharedPreferences.getString(AppConstClass.USER_SECRET, "");
+        String[] params = new String[]{token, tokenSecret, userId};
+        List<String> tweets = null;
+        try {
+            tweets = new CallGetTweetsAPI().execute(params).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
         return tweets;
     }
 

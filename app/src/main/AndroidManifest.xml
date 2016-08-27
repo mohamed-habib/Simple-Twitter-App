@@ -3,12 +3,13 @@
     package="com.example.android.simpletwitterapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:name=".ApplicationClass"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -24,7 +25,7 @@
             android:value="ab6cf310171a23d08a3de5993227ee3e68d7899e" />
 
         <activity
-            android:name=".followerInformation"
+            android:name=".FollowerInformation"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="andriod.support.PARENT_ACTIVITY"

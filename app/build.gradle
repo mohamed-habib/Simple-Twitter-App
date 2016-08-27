@@ -9,6 +9,11 @@ buildscript {
 }
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
+apply plugin: 'com.neenbedankt.android-apt'
+
+def dbflow_version = "3.1.1"
+// or dbflow_version = "develop-SNAPSHOT" for grabbing latest dependency in your project on the develop branch
+// or 10-digit short-hash of a specific commit. (Useful for bugs fixed in develop, but not in a release yet)
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
@@ -47,5 +52,15 @@ dependencies {
     compile('com.twitter.sdk.android:twitter:2.0.0@aar') {
         transitive = true;
     }
-
+    compile(group: 'oauth.signpost', name: 'signpost-core', version: '1.2.1.2')
+    compile(group: 'oauth.signpost', name: 'signpost-commonshttp4', version: '1.2.1.2')
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    compile 'se.akerfeldt:okhttp-signpost:1.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.0.0-RC1'
+    compile 'oauth.signpost:signpost-core:1.2.1.2'
+    apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    // use kapt for kotlin apt
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
 }
