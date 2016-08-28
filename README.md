@@ -10,3 +10,5 @@ I followed Material Design Guidelines, as i used card views and SwipeToRefreshLa
 
 Before running this app, make sure to get the Consumer Key and Consumer Secret after registering your app  <a href = https://apps.twitter.com/> here </a> and add them to AppConstClass.java.
 and follow <a href=https://get.fabric.io/android > Fabric For Android </a> guide to add Fabric to Android Studio and use it to add Login with Twitter.
+
+Download the App. APK <a href =https://github.com/mohamed-habib/Simple-Twitter-App/blob/master/Simple%20Twitter%20App.apk?raw=true > here </a>
