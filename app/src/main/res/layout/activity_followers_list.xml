@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".FollowersListActivity">
+    tools:context=".activities.FollowersListActivity">
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/activity_followers_swipe_refresh_layout"

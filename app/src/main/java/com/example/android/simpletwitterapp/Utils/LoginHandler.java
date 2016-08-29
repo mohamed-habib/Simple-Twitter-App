@@ -1,10 +1,14 @@
-package com.example.android.simpletwitterapp;
+package com.example.android.simpletwitterapp.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.example.android.simpletwitterapp.apis.CallGetFollowersAPI;
+import com.example.android.simpletwitterapp.activities.FollowersListActivity;
+import com.example.android.simpletwitterapp.model.Users;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterException;
@@ -56,6 +60,7 @@ public class LoginHandler extends Callback<TwitterSession> {
         }
 
         context.startActivity(new Intent(context, FollowersListActivity.class));
+        ((Activity)context).finish();
     }
 
     @Override

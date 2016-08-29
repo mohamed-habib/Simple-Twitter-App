@@ -11,21 +11,21 @@
         android:supportsRtl="true"
         android:name=".ApplicationClass"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FollowersListActivity" />
+        <activity android:name=".activities.FollowersListActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="ab6cf310171a23d08a3de5993227ee3e68d7899e" />
 
         <activity
-            android:name=".FollowerInformation"
+            android:name=".activities.FollowerInformationActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="andriod.support.PARENT_ACTIVITY"

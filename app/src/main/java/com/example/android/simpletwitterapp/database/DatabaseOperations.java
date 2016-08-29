@@ -1,4 +1,4 @@
-package com.example.android.simpletwitterapp;
+package com.example.android.simpletwitterapp.database;
 
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 

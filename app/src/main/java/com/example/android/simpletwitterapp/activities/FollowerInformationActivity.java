@@ -1,4 +1,4 @@
-package com.example.android.simpletwitterapp;
+package com.example.android.simpletwitterapp.activities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -16,6 +16,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.android.simpletwitterapp.R;
+import com.example.android.simpletwitterapp.apis.CallGetTweetsAPI;
+import com.example.android.simpletwitterapp.model.User;
+import com.example.android.simpletwitterapp.utils.AppConstClass;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -23,7 +27,7 @@ import java.util.concurrent.ExecutionException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class FollowerInformation extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener {
+public class FollowerInformationActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener {
 
     RecyclerView recyclerView;
 

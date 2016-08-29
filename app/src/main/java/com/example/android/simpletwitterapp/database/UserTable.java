@@ -1,5 +1,6 @@
-package com.example.android.simpletwitterapp;
+package com.example.android.simpletwitterapp.database;
 
+import com.example.android.simpletwitterapp.model.User;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;

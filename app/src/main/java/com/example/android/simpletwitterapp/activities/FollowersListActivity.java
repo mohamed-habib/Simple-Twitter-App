@@ -1,4 +1,4 @@
-package com.example.android.simpletwitterapp;
+package com.example.android.simpletwitterapp.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +20,15 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.android.simpletwitterapp.database.DatabaseOperations;
+import com.example.android.simpletwitterapp.R;
+import com.example.android.simpletwitterapp.apis.CallGetFollowersAPI;
+import com.example.android.simpletwitterapp.database.UserTable;
+import com.example.android.simpletwitterapp.model.User;
+import com.example.android.simpletwitterapp.model.Users;
+import com.example.android.simpletwitterapp.utils.AppConstClass;
+import com.example.android.simpletwitterapp.utils.OnLoadMoreListener;
+import com.example.android.simpletwitterapp.utils.Utilities;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -204,7 +213,7 @@ public class FollowersListActivity extends AppCompatActivity {
                 ((UserViewHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(FollowersListActivity.this, FollowerInformation.class);
+                        Intent intent = new Intent(FollowersListActivity.this, FollowerInformationActivity.class);
                         intent.putExtra(AppConstClass.SELECTED_USER, user);
                         startActivity(intent);
                     }

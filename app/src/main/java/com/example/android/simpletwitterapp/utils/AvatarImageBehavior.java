@@ -1,4 +1,4 @@
-package com.example.android.simpletwitterapp;
+package com.example.android.simpletwitterapp.utils;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -6,6 +6,8 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.example.android.simpletwitterapp.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

@@ -115,7 +115,7 @@
         android:src="@drawable/twitter"
         app:finalHeight="@dimen/image_final_width"
         app:finalYPosition="2dp"
-        app:layout_behavior="com.example.android.simpletwitterapp.AvatarImageBehavior"
+        app:layout_behavior="com.example.android.simpletwitterapp.utils.AvatarImageBehavior"
         app:startHeight="2dp"
         app:startToolbarPosition="2dp"
         app:startXPosition="2dp" />

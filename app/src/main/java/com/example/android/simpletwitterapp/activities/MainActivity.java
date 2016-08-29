@@ -1,10 +1,13 @@
-package com.example.android.simpletwitterapp;
+package com.example.android.simpletwitterapp.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.android.simpletwitterapp.R;
+import com.example.android.simpletwitterapp.utils.AppConstClass;
+import com.example.android.simpletwitterapp.utils.LoginHandler;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(AppConstClass.SHARED_PREFERENCES_FILE_NAME, MODE_PRIVATE);
         if (sharedPreferences.getBoolean(AppConstClass.LOGGED_IN, false)) {
             startActivity(new Intent(this, FollowersListActivity.class));
+            finish();
         }
         setContentView(R.layout.activity_main);
         twitterLoginButton = (TwitterLoginButton) findViewById(R.id.twitter_login_button);

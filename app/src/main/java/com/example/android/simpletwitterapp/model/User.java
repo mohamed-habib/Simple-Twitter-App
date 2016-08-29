@@ -1,4 +1,4 @@
-package com.example.android.simpletwitterapp;
+package com.example.android.simpletwitterapp.model;
 
 import java.io.Serializable;
 
@@ -6,13 +6,13 @@ import java.io.Serializable;
  * Created by Mohamed Habib on 8/28/2016.
  */
 public class User implements Serializable {
-    String screen_name;
-    String user_id;
-    String profile_img;
-    String profile_background;
-    String profile_background_color;
-    String description;
-    String fullName;
+    public String screen_name;
+    public String user_id;
+    public String profile_img;
+    public String profile_background;
+    public String profile_background_color;
+    public String description;
+    public String fullName;
 
     public User(String profile_img, String screen_name, String user_id, String profile_background, String profile_background_color, String description, String fullName) {
         this.profile_img = profile_img;

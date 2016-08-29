@@ -1,4 +1,4 @@
-package com.example.android.simpletwitterapp;
+package com.example.android.simpletwitterapp.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

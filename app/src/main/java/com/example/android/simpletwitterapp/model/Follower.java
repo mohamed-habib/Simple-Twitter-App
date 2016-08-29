@@ -1,4 +1,4 @@
-package com.example.android.simpletwitterapp;
+package com.example.android.simpletwitterapp.model;
 
 /**
  * Created by Mohamed Habib on 8/26/2016.

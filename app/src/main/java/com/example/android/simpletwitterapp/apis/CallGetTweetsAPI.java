@@ -1,7 +1,9 @@
-package com.example.android.simpletwitterapp;
+package com.example.android.simpletwitterapp.apis;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
+import com.example.android.simpletwitterapp.utils.AppConstClass;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,7 +27,7 @@ import oauth.signpost.exception.OAuthMessageSignerException;
 /**
  * Created by Mohamed Habib on 8/28/2016.
  */
-class CallGetTweetsAPI extends AsyncTask<String, Void, List<String>> {
+public class CallGetTweetsAPI extends AsyncTask<String, Void, List<String>> {
     public static final String TAG = "Get Tweets";
 
     @Override
