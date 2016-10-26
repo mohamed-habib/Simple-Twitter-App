@@ -12,3 +12,12 @@ Before running this app, make sure to get the Consumer Key and Consumer Secret a
 and follow <a href=https://get.fabric.io/android > Fabric For Android </a> guide to add Fabric to Android Studio and use it to add Login with Twitter.
 
 Download the App. APK <a href =https://github.com/mohamed-habib/Simple-Twitter-App/blob/master/Simple%20Twitter%20App.apk?raw=true > here </a>
+
+
+<img alt="screenshot1" src="https://raw.githubusercontent.com/mohamed-habib/Simple-Twitter-App/master/1.png" />
+
+<img alt="screenshot2" src="https://raw.githubusercontent.com/mohamed-habib/Simple-Twitter-App/master/2.png" />
+
+<img alt="screenshot3" src="https://raw.githubusercontent.com/mohamed-habib/Simple-Twitter-App/master/3.png" />
+
+<img alt="screenshot4" src="https://raw.githubusercontent.com/mohamed-habib/Simple-Twitter-App/master/4.png" />
